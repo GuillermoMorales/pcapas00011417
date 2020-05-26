@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="sb-admin.css" rel="stylesheet">
+<title>Nueva Categoria</title>
+</head>
+<body>
+
+<h1>Ingresar Nueva Categoria</h1>
+	<form method="post" th:action="@{/saveC}" th:object="${categoria}">
+          	<table cellpadding="10">          	          			
+          		<tr>
+          			<td><label>Nombre Categoria: </label></td>
+          			<td><input type="text" id="categoria" class="form-control" onfocus="this.value=''" th:field="*{s_categoria}" >
+          			<span th:errors="*{s_categoria}" style="color:#DE0000" ></span></td>
+          			
+          		</tr>
+           			<td><input type="submit"  class="btn btn-primary btn-block" value="Guardar Categoria" /></td>          			
+          		</td>
+          		</tr>
+          		
+          	</table>       
+          	</form>
+			<form th:action="@{/regresar}">
+					<input type="submit" class="btn btn-secondary " value="Regresar">
+				</form>
+
+
+
+</body>
+</html>

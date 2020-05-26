@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="sb-admin.css" rel="stylesheet">
+<title>Nuevo Libro</title>
+</head>
+<body>
+<h1>Ingresar Nuevo Libro</h1>
+<table cellpadding="10"> 
+	<form method="post" th:action="@{/saveL}" th:object="${libro}">
+          	         	          			
+          		<tr>
+          			<td><label>Titulo: </label></td>
+          			<td><input type="text" id="titulo" class="form-control" onfocus="this.value=''" th:field="*{titulo}" >
+          			<span th:errors="*{titulo}" style="color:#DE0000" ></span></td>
+          			
+          		</tr>
+          		
+          		<tr>
+          			<td><label>Autor:</label></td>
+          			<td><input type="text" id="autor" class="form-control" th:field="*{autor}" >
+          			<span th:errors="*{autor}" style="color:#DE0000" ></span></td>
+          			
+          		</tr>           		        	
+          		<tr>
+          			<td><label>ISBN:</label></td>
+          			<td><input type="number" id="isbn" class="form-control" th:field="*{isbn}" >
+          			<span th:errors="*{isbn}" style="color:#DE0000" ></span></td>
+          			
+          		</tr>
+          		<tr>
+          			
+    					<td><label>Categoria: </label></td>
+    					<td><select class="form-control"  th:field="*{categoria.c_categoria}">        				
+        					<option th:each="cat : ${listado}"
+                			th:value="${cat.c_categoria}"
+                			th:text="${cat.c_categoria}+':'+${cat.s_categoria}" ></option>
+    					</select></td>
+					
+          		</tr>
+          		<tr>
+          			<td><label>Estado:</label></td>
+          			<td><input type="checkbox" id="bestado"  th:field="*{bestado}" > Activo</td>
+          		</tr>
+          		 
+          		       		          		
+          		<tr>
+          			<td><input type="submit"  class="btn btn-primary btn-block" value="Guardar" /></td>          			
+          		</td>
+          		</tr>
+          		</form>
+          		
+          	</table>       
+          	<form th:action="@{/regresar}">
+					<input type="submit" class="btn btn-secondary" value="Regresar">
+				</form>
+
+</body>
+</html>
