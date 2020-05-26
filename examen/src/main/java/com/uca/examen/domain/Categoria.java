@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.uca.examen.domain.Libro;
@@ -29,6 +30,7 @@ public class Categoria {
 	
 	@Size(message="El campo sobrepasa la cantidad de 50 caracteres", max=50)
 	@NotEmpty(message="El campo categoria no debe estar vacío")
+	@Pattern(regexp="^\\S.*$",message="El campo categoria no puede tener solo espacio")
 	@Column(name="s_categoria")
 	private String  s_categoria;
 	

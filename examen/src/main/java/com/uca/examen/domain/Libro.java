@@ -35,11 +35,13 @@ public class Libro {
 
 	@Size(message="El campo sobrepasa la cantidad de 500 caracteres", max=500)
 	@NotEmpty(message="El campo no debe estar vacío")
+	@Pattern(regexp="^\\S.*$",message="El campo titulo no puede tener solo espacio")
 	@Column(name="s_titulo")
 	private String titulo;
 	
 	@Size(message="El campo sobrepasa la cantidad de 150 caracteres", max=150)
 	@NotEmpty(message="El campo no debe estar vacío")
+	@Pattern(regexp="^\\S.*$",message="El campo autor no puede tener solo espacio")
 	@Column(name="s_autor")
 	private String autor;
 	
